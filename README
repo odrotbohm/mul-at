@@ -1,0 +1,7 @@
+1) create schemas:
+create schema atomikos_one;
+create schema atomikos_two;
+
+2) change values in DbAuth class to use your credentials and IP/port if needed
+
+Tables should be created automatically during test execution

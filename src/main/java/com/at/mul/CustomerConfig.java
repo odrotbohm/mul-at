@@ -24,7 +24,7 @@ public class CustomerConfig {
 	@Bean(name = "customerDataSource", initMethod = "init", destroyMethod = "close")
     public DataSource customerDataSource() {
         MysqlXADataSource mysqlXaDataSource = new MysqlXADataSource();
-        mysqlXaDataSource.setUrl("jdbc:mysql://localhost:3306/atomikos_one");
+        mysqlXaDataSource.setUrl(DbAuth.ATOMIKOS_ONE_URL);
 		mysqlXaDataSource.setPinGlobalTxToPhysicalConnection(true);
 		mysqlXaDataSource.setPassword(DbAuth.PASSWORD);
 		mysqlXaDataSource.setUser(DbAuth.USERNAME);
@@ -44,9 +44,6 @@ public class CustomerConfig {
 		entityManager.setJpaVendorAdapter(jpaVendorAdapter);
 		entityManager.setPackagesToScan("com.at.mul.domain.customer");
 		entityManager.setPersistenceUnitName("customerPersistenceUnit");
-//		Properties properties = new Properties();
-//		properties.put("javax.persistence.transactionType", "JTA");
-//		entityManager.setJpaProperties(properties);
 		return entityManager;
 	}
 

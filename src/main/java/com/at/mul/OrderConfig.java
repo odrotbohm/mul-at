@@ -24,7 +24,7 @@ public class OrderConfig {
 	@Bean(name = "orderDataSource", initMethod = "init", destroyMethod = "close")
     public DataSource orderDataSource() {
         MysqlXADataSource mysqlXaDataSource = new MysqlXADataSource();
-        mysqlXaDataSource.setUrl("jdbc:mysql://localhost:3306/atomikos_two");
+        mysqlXaDataSource.setUrl(DbAuth.ATOMIKOS_TWO_URL);
 		mysqlXaDataSource.setPinGlobalTxToPhysicalConnection(true);
 		mysqlXaDataSource.setPassword("password");
 		mysqlXaDataSource.setUser("root");
